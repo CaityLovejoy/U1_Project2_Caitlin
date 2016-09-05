@@ -13,7 +13,6 @@ class baseEntity
     size=100;
     xVel=0;
     yVel=0;
-
   }
 
   baseEntity(float _x, float _y, int _size, float _xVel, float _yVel)
@@ -31,6 +30,20 @@ class baseEntity
     yVel = _yVel;
   }
 
+  boolean Collision(baseEntity a1, baseEntity a2)
+  {
+    float distance = dist(a1.x, a1.y, a2.x, a2.y);
+    if (distance < a1.size +a2.size)
+    {
+      return true;
+
+    }
+    else
+    {
+      return false;
+    }
+  }
+
   void SetPosition(float _x, float _y)
   {
     x = _x;
@@ -41,7 +54,7 @@ class baseEntity
   {
     ellipse(x, y, size, size);
   }
-  
+
   void Move()
   { 
     if (keyPressed && key == 'w')
@@ -60,6 +73,5 @@ class baseEntity
     {
       x+= xVel;
     }
-    
   }
 }
