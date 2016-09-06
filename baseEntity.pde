@@ -36,7 +36,6 @@ class baseEntity
     if (distance < a1.size +a2.size)
     {
       return true;
-
     }
     else
     {

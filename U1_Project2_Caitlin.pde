@@ -19,15 +19,25 @@ void draw()
   background(0);
   P1.Draw();
   P1.Move();
+  text(P1.health, 100, 100);
   for (int a=0; a < count; a++)
   {
     e[a].Draw();
     e[a].Move();
-   if( e[a].Collision(P1, e[a]))
-   {
-     P1.health = P1.health-10;
-    
-   }
+    if ( e[a].Collision(P1, e[a]))
+    {
+      P1.health = P1.health-10;
+    }
+    if (P1.health <= 0)
+    {
+      gameover();
+      background(255);
+      break;
+    }
   }
-  text(P1.health, 100,100);
+
+  void gameover()
+  {
+    text("GAME OVER", 200, 200)
+  }
 }
