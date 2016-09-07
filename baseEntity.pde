@@ -55,19 +55,31 @@ class baseEntity
   { 
     if (keyPressed && key == 'w')
     {
+      if(y > 0)
+      {
       y-= yVel;
+      }
     }
     if (keyPressed && key == 's')
     {
+      if(y < height)
+      {
       y+= yVel;
+      }
     }
     if (keyPressed && key == 'a')
     {
+      if(x > 0)
+      {
       x-= xVel;
+      }
     }
     if (keyPressed && key == 'd')
     {
+      if(x < width)
+      {
       x+= xVel;
+      }
     }
   }
 }
