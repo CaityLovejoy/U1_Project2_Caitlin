@@ -1,7 +1,7 @@
 class Player extends baseEntity
 {
    int health;
-   
+   boolean isAvailable = true;
    
   Player()
   {
@@ -19,4 +19,9 @@ class Player extends baseEntity
  {
   super.Move();
  }
+ 
+  void invincibilty()
+  {
+  }
+ 
 }

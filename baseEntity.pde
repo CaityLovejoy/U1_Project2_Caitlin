@@ -37,10 +37,7 @@ class baseEntity
     {
       return true;
     }
-    else
-    {
       return false;
-    }
   }
 
   void SetPosition(float _x, float _y)
