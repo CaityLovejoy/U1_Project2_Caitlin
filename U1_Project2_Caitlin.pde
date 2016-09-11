@@ -20,10 +20,18 @@ int gameTime = 0;
 Minim minim;
 AudioPlayer injury;
 AudioPlayer background;
+PrintWriter output;
+PrintWriter output1;
+PrintWriter output2;
+PrintWriter output3;
+String[] scores;
+int[] data;
+BufferedReader reader;
 
 void setup()
 {
   fullScreen();
+  scores = new String[10];
   minim = new Minim(this);
   injury = minim.loadFile("Beep.mp3");
   P1 = new Player(10, 10, 20, 5, 5, 100);
@@ -43,6 +51,11 @@ void setup()
   {
     enemy3[x]= new enemyType3(random(0, width), random(0, height), 10, random(-10, 10), random(-10, 10));
   }
+  output = createWriter("scores.txt");
+  output1 = createWriter("scores1.txt");
+  output2 = createWriter("scores2.txt");
+  output3 = createWriter("scores3.txt");
+  reader = createReader("scores.txt");
 }
 
 void draw()
@@ -58,6 +71,10 @@ void draw()
   if (sceneNum ==  2)
   {
     gameOver();
+  }
+  if (sceneNum == 3)
+  {
+    scoreBoard();
   }
 }
 
@@ -152,7 +169,7 @@ void mainCode()
       }
     }
   }
-for (int a=0; a < count2; a++)
+  for (int a=0; a < count2; a++)
   {
     fill(195, 76, 99);
     enemy3[a].Draw();
@@ -189,6 +206,70 @@ void gameOver()
 {
   fill(255, 0, 0);
   textSize(50);
-  text("GAME OVER", height/2, width/2);
-  text(endTime - gameTime, width/2, height/4);
+  text("GAME OVER", width/2, height/2);
+  int score = endTime - gameTime;
+  text(score, width/2, height/4);
+  if (count==50);
+  {
+    /*output.println(score);
+    output1.flush(); 
+    output1.close();*/
+  }
+  if (count==100)
+  {
+    output1.println(score);
+    output1.flush(); 
+    output1.close();
+  }
+  if (count==200)
+  {
+    output2.println(score);
+    output2.flush(); 
+    output2.close();
+  }
+  if (count==500)
+  {
+    output3.println(score);
+    output3.flush(); 
+    output3.close();
+  }
+  text("Press Q to see Score Board", width/2, height/8);
+  if (keyPressed && key == 'q')
+  {
+    sceneNum = 3;
+  }
+}
+
+void scoreBoard()
+{
+  background(0);
+  if (count == 50)
+  {
+    scores = loadStrings("scores.txt");
+    sort(scores);
+    reverse(scores);
+    fill(255);
+  }
+  if (count == 100)
+  {
+    scores = loadStrings("scores1.txt");
+    sort(scores);
+    reverse(scores);
+    fill(255);
+   
+  }
+  if (count == 200)
+  {
+    scores = loadStrings("scores2.txt");
+    sort(scores);
+    reverse(scores);
+    fill(255);
+  }
+  if (count == 500)
+  {
+    scores = loadStrings("scores3.txt");
+    sort(scores);
+    reverse(scores);
+    fill(255);
+  }
 }
