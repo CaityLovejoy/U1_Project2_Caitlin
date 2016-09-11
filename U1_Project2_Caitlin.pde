@@ -1,3 +1,9 @@
+/* 
+ Basic game by Caitlin
+ 
+ This is just a basic game. Im not sure what else to say here
+*/
+
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -211,9 +217,9 @@ void gameOver()
   text(score, width/2, height/4);
   if (count==50);
   {
-    /*output.println(score);
+    output.println(score);
     output1.flush(); 
-    output1.close();*/
+    output1.close();
   }
   if (count==100)
   {
@@ -249,6 +255,10 @@ void scoreBoard()
     sort(scores);
     reverse(scores);
     fill(255);
+    for (s=0; s<10; s++; )
+    {
+      text(scores[s], width/2, height/2);
+    }
   }
   if (count == 100)
   {
@@ -256,7 +266,6 @@ void scoreBoard()
     sort(scores);
     reverse(scores);
     fill(255);
-   
   }
   if (count == 200)
   {
