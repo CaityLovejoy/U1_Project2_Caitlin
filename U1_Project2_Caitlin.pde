@@ -39,7 +39,7 @@ void setup()
   fullScreen();
   scores = new String[10];
   minim = new Minim(this);
-  injury = minim.loadFile("Beep.mp3");
+  injury = minim.loadFile("Hit_Hurt8.wav");
   P1 = new Player(10, 10, 20, 5, 5, 100);
   enemy1 = new enemyType1[500];
   enemy2 = new enemyType2[500];
@@ -255,10 +255,7 @@ void scoreBoard()
     sort(scores);
     reverse(scores);
     fill(255);
-    for (s=0; s<10; s++; )
-    {
-      text(scores[s], width/2, height/2);
-    }
+  
   }
   if (count == 100)
   {
